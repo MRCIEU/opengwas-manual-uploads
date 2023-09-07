@@ -59,7 +59,8 @@ It may be necessary to download the file and format it in a separate script, or 
 The `GwasDataImport` package uses a few dependencies that can be difficult to install. This docker image has all the pre-requisites + `r/tidyverse` installed, you can run it using
 
 ```
-docker run -it -v $(pwd):$(pwd) -w $(pwd) --name gwasdataimport explodecomputer/gwasdataimport:bioconductor R
+docker build -t gwasdataimport .
+docker run -it -v $(pwd):$(pwd) -w $(pwd) --name gwasdataimport gwasdataimport R
 ```
 
 Just be aware that any temporary files generated will be inside the docker container. So if you stop the docker container then you can get back in there using
